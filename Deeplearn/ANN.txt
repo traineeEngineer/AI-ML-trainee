@@ -1,0 +1,75 @@
+ANN
+===========
+important steps to ANN:
+1.Featre Scalling->q1:which all algorithms feature scalling is required?
+                      1:Linear regression
+                      2:ANN
+                      3:Logistic regression
+                      4:KNN regression
+                      5:KMeans
+
+                      Anything which is related to distance based problem and Gradient descent optimerzer used alogo 
+                      scalling is required
+
+
+Seqential:ANN also has layers in sequential order and the data flows from one layer
+          to another layer in the given order until the data finally reaches the output layer.   
+
+Dense : to create input layer hidden layer and output layer
+
+Activation:it is function which is used in hidden layers 
+
+Dropout: some times our data will get overfitting problem occur so we reduce overfitting to use dropout layer 
+         this is like regularization paramerter
+
+Early stopping: when montitored metric has stopped improving
+
+=====================================================================================================================
+Blackbox model vs whitebox model:
+-----------------------------------
+
+when difficult to monitor such thing like weights, trees are under the Blackbox model some of the algorithms 
+are Random forest,ANN,XGboost
+
+when montitored such things easily is under white box model some algorithm are Linear regreesion,decision trees
+===================================================================================================================================
+
+understanding CNN:
+----------------------
+Convolution:
+
+In a image we have a vlaue are range between 0-255 so we need to scale that rane between 
+0-1 and after pass the filter/kernal is called horizintal edge filter and get output
+
+Convolution operation happens take filter place to top left start position and that filter and
+actual image pixel we already scalled get multiplied each one cell and the final output will 
+be place at first position of final image 
+
+and filter jump one position to right that we may called Stride ,if stride value is Anything
+filter can jump at position and do another multiplcation and add output to the final image value
+                      
+                    =>values be like :filter value{0,0,0,....} , actual image values{0,0,0....}
+                                      multiply both actua and filter value and add like this
+                                      (0*0,0*0,....)=(0+0...)
+formula of spliting image 
+ when we have 6x6 iamge and filter have 3x3 and final output will be 4x4
+        formlua= n-f+1(  =>f is filter)
+
+        upadte formlua if stride > 1 =>n+2p-f+1/s
+
+we use above formlua our final output image will be shrink or loss so to prevent this type of loss
+to use padding technique 
+padding is used to build a compound around a image 
+
+what is importance of padding?
+to prevent information loss on image so we use different kind of padding technique.
+
+note: initially we apply random filter for the image but through back propagation we have
+      to update filter based on input image 
+
+      after Convolution operation when ever get output topof each ond every value we apply relu or prelu function
+
+Maxpooling:
+
+
+Flattening layer : combine all filter output 
