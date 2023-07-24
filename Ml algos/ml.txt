@@ -172,3 +172,25 @@ Bias and variance:
  underfitting problem: high Bias and high variance
  overfitting problem: low bias and high variance
  best fitting problem:low bias and low variance
+ ===================================================================================================================
+ Hypotesis test:
+ -----------------
+  It means we have to prove 2 mutual statement had which one os best  which is best
+  based on sample data to prove it take some steps 1:Initial assumption (h0)
+                                                   2:collect data
+                                                   3:gateher evidence to reject or accept null hypothesis
+  for ex: There is an incident like murder one accused ,we have to find out he is innocent or victim
+  to prove that assume victim is real innocent but we dont have avidence to prove victim is innocent
+  that to H0 is reject and alternate is accepted so victims are seems to guilt statement is passed 
+  ================================================================================================================================
+  T-test,Chi_square test,Annova test,P value:
+  --------------------------------------------
+ p value is basically use for to detect H0 or H1 based on significance value like 0..05
+ that means p value is less than 0.05 to reject H0 and accept H2
+
+ Chi_square test:means we consider two categorical feature 
+ T test: means we consider one continuos number feature to reject or accept H0 or H1
+         note one number feature and one categorical feature is to apply T-Test
+
+ Annova test: means we consider one categorical feature with more than two categories 
+              and one number feature         
