@@ -1,0 +1,174 @@
+Machine Learning
+-----------------------
+supervised ML & unsupervised ML
+
+supervised ML:
+----------------
+two major parts 1:Regression,2:classification
+
+independent feature are Input and
+predicted or Output Dependent Feature
+
+Regression:
+------------
+output is continous variable are regression problem 
+
+classification:
+---------------
+only two cases are be in classification problem are yes or no, pass or fail, 
+
+unsupervised ML:
+----------------
+two major parts 1:Clustering,2:Dimensionality Reduction
+
+ Clustering:
+ ------------
+ there is no predicted values that time we
+ grouping our independent varibles for example great product to rich, good product to middle avarage product to poor
+
+Dimensionality Reduction:
+--------------------------
+focus on more feature we will reduce into lowe dimension one that case we use some algos like PCA,LDA
+
+
+Linear regression:
+-------------------
+we have find best fit line which will help to prediction
+
+some equation over here:
+-------------------------
+y=mx+c
+hΘ(x)=Θo + Θ1(x)
+Θo=intercept mean when x is zero at what point meeting y axis 
+Θ1=slop or coefficient means unit movements in both x axis and y axis  
+x(i)=data points
+
+
+main aim of linear regression is distance of data points near to straight line and calculate 
+distance between data points and predicted point  to find best fit line an
+multiple straigh line  to find best fit line for minimal distance we start with at one point and find best fit line
+we create cost fuction
+   J(Θo,Θ1)=1/2(m)summationi=1,m(hΘ(x)-y)^2 here divide m to get average out put  dividing 2 help for derivation purpose
+the entire function is squared error fucntion
+when we update theta0,theata1basically findout derivation in cost funtion 
+
+
+
+find slope(a)=n(sum(x,y))-(sum(x))(sum(y))/n(sum(X^2))-sum(y^2)
+
+y_intercept(b)=sum(Y)-a(sum(Y))/total data
+
+cost function =1/2m sum(h(x)-y)^2 here h(x)=y-mx+c value
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+logistic regression:
+----------------------
+logistic reression is used when Dependent variable ortarget is categorical
+eg:predict whether email or spam ('0' or '1')
+
+sigmoid=>g(x)=1/1+e^-x
+logistic equation:h=g(z)=1/1+e^-z,here z is linear regression
+
+z is exactly y=mx+C fuction 
+e refers value is approximatey equal to 2.71828
+
+Decision boundry: predicted class a data belongs ,a threshold can be set. based upon this threshold
+the obtained estimated probaility classified into class this threshold is decision boundry
+
+predicted value >=0.5 then classifies email or else spam
+
+types of logistic regression:1.binary logistic regression
+                             2.multinomial
+                             3.ordinal  
+
+assumption of logistic regression is if g(z)>=0.5 whenever z>=0 is g(z)>=0 or else g(z)<=0
+
+========================================================================================================================================
+ploynomial regression:
+----------------------------
+
+ploynomial regression eq:f(X)=a0+a1x+a2x^2+----anx^n
+
+================================================================================================================
+support vector machine:
+------------------------
+it is used for both classification or regression .but mostly used in classification
+
+hyper plane:
+------------
+it is a line ,it separate n-1 & n dimensions
+
+
+support vector moto: it is similar to linear regression but in SVM data points ar two classes which is
+near to hyper plane that is called support vector and found maximum distance between hyper plane data points 
+are called margin
+
+suppose hyper plane will not pass through origin and that case hyper not pass through origin lable =w^tx +based
+
+how can increase margin value or optimize maximum margin ?
+
+   calculate margin distance and name it as x1,x2 and to find 
+
+   w^tx1+b=1
+  (-) w^tx2+b=-1
+---------------
+w^t(x1-x2)=2  ,here remove w^t and we use ||w|| means norm of w  and we divide 
+
+here equation be like w^t(x1-x2)||w|| =2/||w|| 
+
+=> x1-x2=2/||w||
+
+
+to maximum margin value 
+yi={-1 w^tx1+b<=-1
+    1  w^tx2+b>=1} here  equation is to be negative yi is -1 and got positive yi become 1
+
+
+max(2/||w||) such that 
+    yi={-1 w^tx1+b<=-1
+         1 w^tx2+b>=1} 
+
+   max margin without overfitting  why because we can max magin continously  it become a overfitting problem
+   to avoid it min(||w||/2)+c*sum(epsil(i)) c is number of error ,epsil is error magintude       
+   
+
+ when to use kernals ?
+ whenever our classification data is linearly not separable that case we should use kernals  
+ kernals
+ --------
+ linear kernal                              formula:z=x^2+y^2
+ ploynomial kernal                          formula:f=(x1^Transpose *x2+1)^d
+ radial basis function(rbf) kernal          formula: 
+ sigmoid kkernal
+ gaussian kernal
+------------------------------------------------------------------------------------------------------------------------------------------
+K nearest neighbours
+---------------------
+non parametric and lazy Learning algorithm,non parametric means there is no assumption for 
+underlying data distribution
+here k value is hyperparameter which means user defined value
+
+
+Knn classification:
+an object is classified by a plurality vote of neighbours with the object beig assaigned to the class 
+most common among its K nearest neighbours 
+
+Eucledian ditance:  sqrt((x2-x1)^2+(y2-y1)^2)
+
+Manhattan distance: sum|(x-y)|
+
+minkowski distance genralise above two formula :(sum(|x-y|)^q)^1/q
+
+hamming disstance : calculate distance between categorical variable 
+Dh=sum(|x-y|) such that x=y=>D=0,
+                        x!=y=>D=1
+=================================================================================================================
+interview Question:
+why fit_tranform() used for training data transform() for testdata?
+=======================================================================================================
+Bias and variance:
+ Bias means error of training data, variance means error of test data
+
+ underfitting problem: high Bias and high variance
+ overfitting problem: low bias and high variance
+ best fitting problem:low bias and low variance
