@@ -1,0 +1,293 @@
+Weight Initialization:
+-----------------------
+ 1) uniform distribution
+    Wij~ UD[-1/sqrt(fan_in),i/sqrt(fan_in)] it between a,b
+
+ 2)Xavier/Gorat distribution
+       
+
+
+
+Note:Derivative of sigmoid function in Deep network points are range in 0-0.25
+
+Vanishing Gradient decent problem:
+====================================
+  when we use back propagation in deep neural network , we use kind of chain rule of 
+  derivation formula that time weight are updated but here use sigmoid activation function
+  and it will be use derivation of activation fuction points are range 0-0.25 that time 
+  small values , whenever we update new weights that time weights are approximately equal to 
+  older weights this problems cause vanishing gradient problem
+
+  how to solve use another activation fuction 
+
+Note:Zero centered curve : when the curve pass through the origin position weight updation
+     is very easy and efficiently upadte weights
+
+Leaky Relu: solves dead neuron problem
+
+Note : In neural network hidden layer use Relu function  but it is  classfication problem 
+       output layer use sigmoid fuction
+
+ANN
+===========
+important steps to ANN:
+1.Featre Scalling->q1:which all algorithms feature scalling is required?
+                      1:Linear regression
+                      2:ANN
+                      3:Logistic regression
+                      4:KNN regression
+                      5:KMeans
+
+                      Anything which is related to distance based problem and Gradient descent optimerzer used alogo 
+                      scalling is required
+
+
+Seqential:ANN also has layers in sequential order and the data flows from one layer
+          to another layer in the given order until the data finally reaches the output layer.   
+
+Dense : to create input layer hidden layer and output layer
+
+Activation:it is function which is used in hidden layers 
+
+Dropout: some times our data will get overfitting problem occur so we reduce overfitting to use dropout layer 
+         this is like regularization paramerter
+
+Early stopping: when montitored metric has stopped improving
+
+
+
+=====================================================================================================================
+Blackbox model vs whitebox model:
+-----------------------------------
+
+when difficult to monitor such thing like weights, trees are under the Blackbox model some of the algorithms 
+are Random forest,ANN,XGboost
+
+when montitored such things easily is under white box model some algorithm are Linear regreesion,decision trees
+===================================================================================================================================
+
+understanding CNN:
+----------------------
+Convolution:
+
+In a image we have a vlaue are range between 0-255 so we need to scale that rane between 
+0-1 and after pass the filter/kernal is called horizintal edge filter and get output
+
+Convolution operation happens take filter place to top left start position and that filter and
+actual image pixel we already scalled get multiplied each one cell and the final output will 
+be place at first position of final image 
+
+and filter jump one position to right that we may called Stride ,if stride value is Anything
+filter can jump at position and do another multiplcation and add output to the final image value
+                      
+                    =>values be like :filter value{0,0,0,....} , actual image values{0,0,0....}
+                                      multiply both actua and filter value and add like this
+                                      (0*0,0*0,....)=(0+0...)
+formula of spliting image 
+ when we have 6x6 iamge and filter have 3x3 and final output will be 4x4
+        formlua= n-f+1(  =>f is filter)
+
+        upadte formlua if stride > 1 =>n+2p-f+1/s
+
+we use above formlua our final output image will be shrink or loss so to prevent this type of loss
+to use padding technique 
+padding is used to build a compound around a image 
+
+what is importance of padding?
+to prevent information loss on image so we use different kind of padding technique.
+
+note: initially we apply random filter for the image but through back propagation we have
+      to update filter based on input image 
+
+      after Convolution operation when ever get output topof each ond every value we apply relu or prelu function
+
+Maxpooling:
+
+
+Flattening layer : combine all filter output 
+
+what is data agumentation:technique where in used to create own images 
+like original image can be create differnt type of variation eg:mirror image,left flip ,rightflip ..etc
+
+note: donot apply Data agumentation technique test data
+=================================================================================================
+NLP
+-----
+Agenda:
+   1.why NLP
+   2.Tokenization,Skimming,Lemmitization
+   3.Bag of words
+
+Why NLP
+
+Text Preprocessing: focus on convert sentence into some formate specifically say as vectors
+                  vectors it is number formate it will feed intp model 
+
+                  some of basics stopwords,Lemmitization,Tokenization,stemming 
+
+Text Preprocessing2:convert words to vectors BOw(bag pf words),TFIDF,Unigrams,Bigrams
+
+Text Preprocessing3: Word2vec,avgword2vec
+
+ML usecases
+
+DeepLearning: RNN,LSTMRNN,GRURNN
+
+AdvTextpreprocessing: word Embedding,
+
+Adv.Deeplearning:Bidirectional LSTM,Emcoders,Decoders,Attention Models
+
+Transformers
+
+BERT
+
+---------------------------------------------------------------------------------------------------------------
+NLP_Step1
+----------------
+Tokenization:convert sentence into words eg: you won 1000 rs it will split like you,won,1000,rs
+
+
+stopwords:repeated words occur in our sentence it will remove
+
+stemming:processing reducing words to their base word stem  Historical history=>histori it will convert and found out root word
+         disadvantage :it remove meaning of word 
+         advantage :text Preprocessing is fast and Preprocessing on huge data
+
+Lemmitization:overcome disadvantage of stemming Lemmitization is more useful ,it gives meaning words
+              advantage: get menaing ful words
+              disadvantage: process is slow
+
+usecases: stemming: spam classfication,review classfication
+          Lemmitization:text summarization ,language translation,chatbot 
+
+==============================================================================================================================================
+step 2: convert words to vectors
+
+techniques:
+--------------
+Bag of words(BOW)
+TF-IDF(Term Frequency-Inverse Document Frequency)
+Word2vec
+One hot encoding
+
+Basic technique used in NLP: Corpus,Documents,Vocabulary,Words
+                               |       |          |         |
+                           group of   sentences   no.of   every 
+                           sentence               uniq    single 
+                                                  words   word
+
+One Hot encoding: apply on every single sentence or Document and covert into sparse matrix
+                  like[[1 0 0 0],
+                        [0 1 0 0]...]
+                   advantage: simple and intutive
+                   disadvantage:sparse matrix its takes time and consume more Cpu,
+                                 out of Vocbulary
+                                 Not fixed size
+                                 doesn't find relationship
+                                 of words
+ d1->good boy girl
+ d2->good girl
+ d3->boy girl good
+
+ Vocabulary     Frequency
+ good             3
+ boy              2
+ girl             2
+                  note:based on Frequency features will selected
+
+Note:Vocabulary size decrease we cannot train model,because input features are fixed
+
+Bagof Words: it use stop word technique for remove all unnecessary words and lowering cases
+             note:If our sentence have same word repeated we should use Binary Bow
+                  when ever find related word, vectors cannot increase count it keep it as 1 only
+             advantage:simple & intutive
+             disadvantage:sparsity,OOv,order of words,symmantic meaning lost  
+
+note: capture the symmantic information use Ngrams
+
+Ngrams:combination of two bigram,trigram,quadrgram
+          bi-gram:
+          --------
+         good    boy   girl  goodboy  goodgirl
+     s1   1       1     0      1         0
+
+     s2   1       0     1      0         1
+  
+     s2   1       1     1      0         0
+
+
+ 
+TF-IDF:
+    which ever words are rarly present in sentences try to give more weightage.
+    rare words are captured by TerFrequency(Tf) and common words are captured by
+    IDF ,both combine to do find most rare words in Document
+
+          calc tf =no.of repeated words in sentence/no.of words in sentence
+          calc IDF=loge(no.of words in sentence/no.of words in sentence contain the words)
+=================================================================================================================================================
+Word2vec:
+------------
+  use word2vec to create vectors with limited dimension,
+  sparsity is reduced,symmantic meaning is maintained
+
+  CBOW(continus Bag of words):
+  Skipgram
+
+  Avgword2vec: all word dimension must be value like 100 or 300 so we use 
+                avgword2vec algorithm calc to sum of all word dimension and 
+                average of all dimension lets create a new 100 or 300 dimension array
+
+
+word Embedding  : its technique which converts word into vectors        
+==================================================================================================================================
+Recurrent Neural Network:
+=========================
+send some amount of input probably we get some kind of output and the output sent back to neural network
+
+types of RNN  :one-one RNN, ont-many RNN,Many-one RNN,Many-Many RNN
+-------------
+
+One-one eg: image classfication
+one- many eg:google suggestion,text generation
+many - one eg: sentiment analysis
+many-many eg:language translation,chatbot,question answering
+
+forward propogation in RNN:
+
+backward propagation in RNN:Using chain rule of derivation we need to update weights 
+               Wnew=Wnew-learnrate dervloss/dervWnew
+      chain rule= dervloss/dervW=derv loss/derv yhat * derv Yhat/derv outputn* derv outputn/derv W      
+========================================================================================================================================
+LSTM RNN:capture context of words ,it has four main section
+
+
+            1.Memory cell,2.Forget cell,3.Input cell
+
+why LSTM RNN instead of RNN and problem of RNN?
+   vanishing gradient problem or dead neuron
+   context info 
+
+   if we have short length of sentense Rnn probably works when our sentense length 
+   is high it is difficult to RNN
+
+   context switching is nothing but it forget about the previous conetext and focus on current context
+   whenever we find rectangle shape that means NN with activation function
+   two line are joined it called concatination,two line are seperated that means copy,
+   arrows are vectors Transfer, circul are point wise operation
+
+In Memory cell two operations are done 1.add info,2.remove info
+forget layer cell  activates when context switching means sentense can represent some other things forget prev info of sentense  
+
+Word Embedding layer:
+  we have sentences and we convert sentences into vectors by Using One_hot encoding technique which is already 
+  available in keras library after convert the sentences into vectors ,those vectors pass to Embedding layer 
+  Embedding layer can represent some kind of vectors represention.how it is possible ?
+  we should implement dimension values. Embedding method can convert the feature into vectors based on dimension value only
+  for ex: each word can convert  into vector like dimension value is 10 we use and values are like => smell:[0.545,0.435.......0.554] 10 vectors.
+
+Bidirectional LSTM RNN:
+
+
+
+
+
