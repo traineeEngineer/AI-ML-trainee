@@ -25,4 +25,12 @@ def solution(inputArray):
 def solution(s1, s2):
     return sum(min(s1.count(char),s2.count(char)) for char in set(s1))
 
+# isLUcky number
+def isLucky(n):
+    n_str = str(n)
+    half_len = len(n_str) // 2
+    first_half_sum = sum(int(digit) for digit in n_str[:half_len])
+    second_half_sum = sum(int(digit) for digit in n_str[half_len:])
+    return first_half_sum == second_half_sum
+
 
