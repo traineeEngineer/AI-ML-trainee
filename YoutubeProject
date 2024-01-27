@@ -1,1 +1,10 @@
+#Almost increase Sequeence
+def solution(sequence):
+    count_removed = 0
+    for val in range(1, len(sequence)):
+        if sequence[val] <= sequence[val - 1]:
+            count_removed += 1
+            if val > 1 and sequence[val] <= sequence[val - 2]:
+                sequence[val] = sequence[val - 1]
 
+    return count_removed <= 1
