@@ -33,4 +33,9 @@ def isLucky(n):
     second_half_sum = sum(int(digit) for digit in n_str[half_len:])
     return first_half_sum == second_half_sum
 
+# sort by height
+def solution(a):
+   people=sorted([height for height in a if height!=-1])
+   return [-1 if height==-1 else people.pop(0) for height in a ]
+
 
