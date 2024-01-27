@@ -38,4 +38,19 @@ def solution(a):
    people=sorted([height for height in a if height!=-1])
    return [-1 if height==-1 else people.pop(0) for height in a ]
 
+# reverse in paranthesis
+def solution(inputString):
+    for s in range(len(inputString)):
+        if inputString[s]=='(':
+            start=s
+        if inputString[s]==')':
+            end=s
+            return solution(inputString[:start]+inputString[start+1:end][::-1]+inputString[end+1:])
+    return inputString        
+            
+                
+    
+
+
+
 
