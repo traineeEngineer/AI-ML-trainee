@@ -8,3 +8,10 @@ def solution(sequence):
                 sequence[val] = sequence[val - 1]
 
     return count_removed <= 1
+
+
+# Matrix Element sum
+def solution(matrix):
+    return sum(matrix[cost_rooms][free_rooms] for free_rooms in range(len(matrix[0]))   
+for cost_rooms in range(len(matrix)) if matrix[cost_rooms][free_rooms]!=0 and
+all(matrix[k][free_rooms] for k in range(cost_rooms)))
