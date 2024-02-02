@@ -47,7 +47,78 @@ def solution(inputString):
             end=s
             return solution(inputString[:start]+inputString[start+1:end][::-1]+inputString[end+1:])
     return inputString        
-            
+
+HACKER RANK SOLUTION
+#List comprehension
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+    print(list([i,j,k] for i in range(x+1) for j in range(y+1) for k in range(z+1)  if i+j+k !=n))
+
+#Check Leap Year
+def is_leap(year):
+    leap = False
+    # Write your logic here
+    if year%4==0:
+        leap=True
+        if year%100==0:
+            if year%400==0:
+                leap= True
+            else:
+                leap=False    
+    return leap
+
+# find ruunner up_score
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    print(sorted(set(arr),reverse=True)[1])
+
+#swap_Case
+def swap_case(s):
+    return s.swapcase()
+#list operation
+f __name__ == '__main__':
+    N = int(input())
+    L=[]
+    for i in range(0,N):
+        cmd=input().split()
+        if cmd[0]=='insert':
+            L.insert(int(cmd[1]),int(cmd[2]))
+        elif cmd[0]=='append':
+            L.append(int(cmd[1]))
+        elif cmd[0]=='pop':
+            L.pop()    
+        elif cmd[0]=='print':
+            print(L)
+        elif cmd[0]=='remove':
+            L.remove(int(cmd[1]))    
+        elif cmd[0]=='sort':
+            L.sort()
+        else:
+            L.reverse()  
+#Neste List
+if __name__ == '__main__':
+    a_list=[]
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        a_list.append([name,score])
+    second_high=sorted(set([score for name,score in a_list]))[1]
+    print('\n'.join(sorted([name for name,score in a_list if score==second_high])))
+
+# string mutation
+def mutate_string(string, position, character):
+    n=list(string)
+    n[position]=character
+    string=''.join(n)
+    return string
+
+    
+        
+
                 
     
 
