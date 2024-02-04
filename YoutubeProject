@@ -116,6 +116,119 @@ def mutate_string(string, position, character):
     string=''.join(n)
     return string
 
+#Find Percentage
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    l=list(student_marks[query_name])
+    result=sum(l)/len(l)
+    print('%.2f'%result)
+
+#String validator
+if __name__ == '__main__':
+    s = input()
+    print(any(c.isalnum() for c in s))
+    print(any(c.isalpha()   for c in s)) 
+    print(any(c.isdigit() for c in s))
+    print(any(c.lower()   for c in s))
+    print(any(c.upper()   for c in s))
+
+#Text Alignment
+thickness = int(input()) #This must be an odd number
+c = 'H'
+
+#Top Cone
+for i in range(thickness):
+    print((c*i).rjust(thickness-1)+c+(c*i).ljust(thickness-1))
+#Top Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+#Middle Belt
+for i in range((thickness+1)//2):
+    print((c*thickness*5).center(thickness*6))    
+#Bottom Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))    
+#Bottom Cone
+for i in range(thickness):
+    print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+
+#text wrap
+import textwrap
+def wrap(string, max_width):
+    return textwrap.fill(string,width=max_width)
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+    result = wrap(string, max_width)
+    print(result)
+
+#design door mat
+N,M=map(int,input().split())
+for dots in range(N//2):
+      j = int((2*dots)+1)
+      print(('.|.'*j).center(M, '-'))
+print('WELCOME'.center(M,'-'))
+for i in reversed(range(N//2)):
+    j = int((2*i)+1)
+    print(('.|.'*j).center(M, '-'))
+
+#captilize name
+def solve(s):
+    ans=s.split(' ')
+    ans1=(((i.capitalize() for i in ans)))
+    return ' '.join(ans1)
+
+#minion game
+ n = len(string)
+    comb = ((n)*(n+1))/2
+    count_k = 0
+    count_s = 0
+    count_k = sum([len(string[i:]) for i in range(len(string)) if string[i] in "AEIOU"])
+    count_s = comb - count_k
+    if count_s == count_k:
+        print("Draw")
+    elif count_s > count_k:
+        print("Stuart", int(count_s) )
+    else:
+        print("Kevin", int(count_k))
+
+#triangle quest
+or i in range(1,int(input())+1): #More than 2 lines will result in 0 score. Do not leave a blank line also
+    print (((10**i)//9)**2)
+
+#OrderdDict
+from collections import OrderedDict
+input_=int(input())
+a=OrderedDict()
+for _ in range(input_):
+    item,name,price=input().rpartition(' ')
+    a[item]=a.get(item,0)+int(price)
+for item,price in a.items():
+    print(item,price)
+
+#word Orderd
+from collections import Counter
+n=int(input())
+l1=[input().strip() for _ in range(n)]
+result=Counter(l1)
+print(len(result))
+print(*result.values())
+
+#Collection DEQueue
+from collections import deque
+D=deque()
+for _ in range(int(input())):
+    op,val,*args=input().split()+['']
+    eval(f'D.{op}({val})')
+print(*D)  
+
+
+
     
         
 
