@@ -236,6 +236,96 @@ C=list(combinations(L,K))
 F=filter(lambda c :'a' in c,C)
 print('{0:.3}'.format(len(list(F))/len(C)))
 
+# divmod
+a=int(input())
+b=int(input())
+print(a//b)
+print(a%b)
+print(divmod(a,b))
+
+#power mod
+a=int(input())
+b=int(input())
+m=int(input())
+C=pow(a,b)
+D=C%m
+print(int(C))
+print(int(D))
+
+#integer come all side
+a=int(input())
+b=int(input())
+c=int(input())
+d=int(input())
+
+print(int(pow(a, b))+ int(pow(c, d)))
+
+#check subset
+for i in range(int(input())):
+    a=int(input())
+    set_a=set(map(int, input().split()))
+    b=int(input())
+    set_b=set(map(int, input().split()))
+    if len(set_a.difference(set_b))==0:
+        print('True')
+    else:
+        print('False')
+
+#strict subset
+A = set(input().split())
+COUNT = 0
+VALUE = 0
+for i in range(int(input())):
+    if A.issuperset(set(input().split())):
+        COUNT += 1
+    else:
+        VALUE += 1
+if VALUE != 0:
+    print('False')
+else:
+    print('True')
+
+#Torison angle
+import math
+
+class Points(object):
+    def __init__(self, x, y, z):
+        self.x=x
+        self.y=y
+        self.z=z
+
+    def __sub__(self, no):
+        return Points((self.x-no.x), (self.y-no.y), (self.z-no.z))
+         
+    def dot(self, no):
+        return (self.x*no.x)+(self.y*no.y)+(self.z*no.z)
+
+    def cross(self, no):
+        return Points((self.y*no.z-self.z*no.y), (self.z*no.x-self.x*no.z), (self.x*no.y-self.y*no.x))
+        
+    def absolute(self):
+        return pow((self.x ** 2 + self.y ** 2 + self.z ** 2), 0.5)
+
+#set.discord(),pop(),remove()
+n = int(input())
+s = set(map(int, input().split()))
+for i in range(int(input())):
+    s1=input().split()
+    if s1[0]=='pop':
+        s.pop()
+    elif s1[0]=='remove':
+        s.remove(int(s1[1]))
+    elif s1[0]=='discard':
+        s.discard(int(s1[1]))
+print(sum(s)) 
+
+#set union 
+m=int(input())
+eng_n=set(input().split())
+n=int(input())
+fre_n=set(input().split())
+print(len(eng_n.union(fre_n)))
+
 
     
         
