@@ -326,6 +326,59 @@ n=int(input())
 fre_n=set(input().split())
 print(len(eng_n.union(fre_n)))
 
+#set mutation
+len_set=int(input())
+storage=set(map(int,input().split()))
+op_list=int(input())
+
+for i in range(op_list):
+    operation=input().split()
+    
+    if operation[0]=='intersection_update':
+        temp_storage=set(map(int, input().split()))
+        storage.intersection_update(temp_storage)
+    elif operation[0] =='update':
+        temp_storage=set(map(int, input().split()))
+        storage.update(temp_storage)     
+    elif operation[0]=='symmetric_difference_update':
+        temp_storage=set(map(int, input().split()))
+        storage.symmetric_difference_update(temp_storage)
+    elif operation[0]=='difference_update':
+        temp_storage=set(map(int, input().split()))
+        storage.difference_update(temp_storage)
+    else:
+        assert False
+print(sum(storage))                        
+
+#zipped
+N, X= input().split()
+io=list()
+for _ in range(int(X)):
+    ip=map(float, input().split())
+    io.append(ip)
+for i in zip(*io):
+    print(sum(i)/len(i))
+
+#input()
+f __name__=='__main__':
+    x, k= map(int, input().strip().split())
+    string=input().strip()
+    
+    if eval(string)==k:
+        print('True')
+    else:
+        print('False')
+
+#Any or All
+_=input()
+n=input().split()
+print(all([int(i)>0 for i in n]) and any([j==j[::-1] for j in n]))
+
+#Detect Float 
+import re
+pattern=re.compile('^[-+]?[0-9]*\.[0-9]+$')
+for _ in range(int(input())):
+    print(bool(pattern.match(input())))
 
     
         
