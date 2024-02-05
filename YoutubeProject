@@ -401,25 +401,23 @@ class Complex(object):
         self.imaginary=imaginary
         
     def __add__(self, no):
-        return Complex(self.real+no.real, self.imaginary+no.imaginary)
+        return Complex(self.real+no.real, self.imaginary+ no.imaginary)
         
     def __sub__(self, no):
-        return Complex(self.real-no.real, self.imaginary-self.imaginary)
+        return Complex(self.real-no.real, self.imaginary-no.imaginary)
+        
     def __mul__(self, no):
-        real = self.real * no.real - self.imaginary * no.imaginary
-        imaginary = self.real * no.imaginary + self.imaginary * no.real
-        return Complex(real, imaginary)
+        prodt=complex(self.real, self.imaginary)*complex(no.real, no.imaginary)
+        return Complex(prodt.real, prodt.imag) 
+        
 
     def __truediv__(self, no):
-        x = float(no.real ** 2 + no.imaginary ** 2)
-        y = self * Complex(no.real, -no.imaginary)
-        real = y.real / x
-        imaginary = y.imaginary / x
-        return Complex(real, imaginary)
+        divt=complex(self.real, self.imaginary)/ complex(no.real, no.imaginary)
+        return Complex(divt.real, divt.imag)
 
     def mod(self):
-        m = math.sqrt(self.real**2 + self.imaginary**2)
-        return Complex(m,0)
+        m= math.sqrt(self.real**2+self.imaginary**2)
+        return Complex(m, 0)
 
     def __str__(self):
         if self.imaginary == 0:
@@ -442,7 +440,72 @@ if __name__ == '__main__':
     y = Complex(*d)
     print(*map(str, [x+y, x-y, x*y, x/y, x.mod(), y.mod()]), sep='\n')
 
-    
+#Map and Lambda
+cube = lambda x: x**3# complete the lambda function 
+def fibonacci(n):
+    # return a list of fibonacci numbers
+    a, b, c =0, 1, 1
+    for _ in range(n):
+        yield a
+        a, b= b, a+b 
+
+#Validating Email Address
+def fun(s):
+    # return True if s is a valid email, else return False
+    try:
+        username, url=s.split('@')
+        website, extension= url.split('.')
+    except ValueError:
+        return False
+    if username.replace('-', '').replace('_', '').isalnum() is False:
+        return False
+    elif website.isalnum() is False:
+        return False
+    elif len(extension)>3:
+        return False
+    else:
+        return True   
+
+#Athlete Sort
+f __name__ == '__main__':
+    nm = input().split()
+    n = int(nm[0])
+    m = int(nm[1])
+    arr = []
+    for _ in range(n):
+        arr.append(list(map(int, input().rstrip().split())))
+    k = int(input())
+    sorted_arr=sorted(arr, key=lambda x: x[k])
+    for row in sorted_arr:
+        print(' '.join(str(y) for y in row))
+
+# Reduce Function
+from fractions import Fraction
+from functools import reduce
+def product(fracs):
+    t =Fraction(reduce(lambda x, y: x*y,fracs)) # complete this line with a reduce statement
+    return t.numerator, t.denominator
+
+# groups(),Group(),GroupDict()
+import re
+m=re.findall(r'([A-Za-z0-9])\1+', input())
+if m:
+    print(m[0])
+else:
+    print(-1)   
+
+#Re.start and Re.Startall()
+import re
+S = input()
+k = input()
+pattern = re.compile(k)
+r = pattern.search(S)
+if not r:
+    print("(-1, -1)")
+while r:
+    print("({0}, {1})".format(r.start(), r.end() - 1))
+    r = pattern.search(S, r.start() + 1) 
+
         
 
                 
