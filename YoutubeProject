@@ -79,6 +79,7 @@ if __name__ == '__main__':
 #swap_Case
 def swap_case(s):
     return s.swapcase()
+
 #list operation
 f __name__ == '__main__':
     N = int(input())
@@ -99,6 +100,7 @@ f __name__ == '__main__':
             L.sort()
         else:
             L.reverse()  
+
 #Neste List
 if __name__ == '__main__':
     a_list=[]
