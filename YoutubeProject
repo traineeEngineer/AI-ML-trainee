@@ -547,7 +547,41 @@ for i in range(int(input())):
     except:
         print('Invalid')
     else:
-        print('Valid')             
+        print('Valid')  
+
+#standadize mobile number
+def wrapper(f):
+    def fun(l):
+        # complete the function
+        f(['+91 '+c[-10:-5]+' '+c[-5:] for c in l])
+    return fun
+
+# validate Postal code
+regex_integer_in_range = r"^([1-9][0-9]{5}$)"	# Do not delete 'r'.
+regex_alternating_repetitive_digit_pair = r"(?=(.)(.)(\1))"
+
+#Matrix Script
+import math
+import os
+import random
+import re
+import sys
+
+first_multiple_input = input().rstrip().split()
+n = int(first_multiple_input[0])
+m = int(first_multiple_input[1])
+matrix = []
+t=[]
+for _ in range(n):
+    matrix_item = input()
+    matrix.append(matrix_item)
+for i in range(m):
+    for j in range(n):
+        t.append(matrix[j][i])
+s=''.join(t)
+path=re.compile(r'\b[ !@#$%&]+\b', re.M)
+k=re.sub(path, ' ', s)
+print(k)        
         
 
                 
