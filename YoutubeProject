@@ -508,6 +508,46 @@ while r:
     print("({0}, {1})".format(r.start(), r.end() - 1))
     r = pattern.search(S, r.start() + 1) 
 
+
+@ Regx substitution
+import re
+for i in range(int(input())):
+    print(re.sub(r'(?<= )(&&|\|\|)(?= )', lambda x: 'and' if x.group()=='&&' else 'or', input()))
+
+#validate Roman Numbers
+regex_pattern = r"^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$" 	# Do not delete 'r'.
+import re
+print(str(bool(re.match(regex_pattern, input()))))
+
+#validate phone number
+import re
+[print('YES' if re.match(r'[789]\d{9}$', input()) else 'NO') for _ in range(int(input()))]
+
+$validating Parsing Email address
+import re
+import email.utils
+n=int(input())
+email_val=re.compile(r'^[A-Za-z][\w\.-]+@[A-Za-z]+\.[A-Aa-z]{1,3}$')
+for _ in range(n):
+    parsed = email.utils.parseaddr(input())
+    if re.fullmatch(email_val, parsed[1]):
+        print(email.utils.formataddr(parsed))
+
+$ validating credit card number
+import re
+
+for i in range(int(input())):
+    card= input()
+    
+    try:
+        assert re.search(r'^[456]', card)
+        assert re.search(r'^(-?\d{4}){4}$', card)
+        assert not re.search(r'(\d)(-?\1){3}', card)
+        
+    except:
+        print('Invalid')
+    else:
+        print('Valid')             
         
 
                 
