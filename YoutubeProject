@@ -663,6 +663,12 @@ print(A//B)
 print(numpy.mod(A, B))
 print(numpy.power(A, B))
 
+#sum and prod
+import numpy
+N, M=map(int, input().split())
+A=numpy.array([input().split() for i in range(N)], int)
+print(numpy.prod(numpy.sum(A, axis=0), axis=0))
+
             
 
                 
