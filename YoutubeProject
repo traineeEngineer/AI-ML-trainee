@@ -615,7 +615,55 @@ def arrays(arr):
 arr = input().strip().split(' ')
 result = arrays(arr)
 print(result)
-        
+
+#numpy reshape
+import numpy
+
+my_arr=numpy.array(input().split(), int)
+print(numpy.reshape(my_arr, (3, 3)))
+
+# validating Uid
+import re
+for _ in range(int(input())):
+    u=''.join(sorted(input()))
+    try:
+        assert re.search(r'[A-Z]{2}', u)
+        assert re.search(r'\d\d\d', u)
+        assert not re.search(r'[^a-zA-Z0-9]', u)
+        assert not re.search(r'(.)\1', u)
+        assert len(u)==10
+    except:
+        print('Invalid')
+    else:
+        print('Valid') 
+
+# transpose matrix
+import numpy
+N, M =map(int, input().split())
+store=numpy.array([input().strip().split()for _ in range(N)], int)
+print(store.transpose())
+print(store.flatten())
+
+# numpy concatnate
+import numpy
+NMP = list(map(int, input().split()))
+N = numpy.array([input().split() for i in range(NMP[0])], int)
+M = numpy.array([input().split() for i in range(NMP[1])], int)
+print(numpy.concatenate((N, M), axis=0))
+
+#Array Maths
+import numpy
+N, M= map(int, input().split())
+A=numpy.array([list(map(int, input().split())) for i in range(N)], int)
+B=numpy.array([list(map(int, input().split())) for i in range(N)], int)
+print(numpy.add(A, B))
+print(numpy.subtract(A, B))
+print(numpy.multiply(A, B))
+print(A//B)
+print(numpy.mod(A, B))
+print(numpy.power(A, B))
+
+            
 
                 
     
