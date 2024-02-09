@@ -669,6 +669,43 @@ N, M=map(int, input().split())
 A=numpy.array([input().split() for i in range(N)], int)
 print(numpy.prod(numpy.sum(A, axis=0), axis=0))
 
+#Eye and Identity
+import numpy
+numpy.set_printoptions(sign=' ')
+print(numpy.eye(*map(int, input().split())))
+
+#Name Directory
+import operator
+def person_lister(f):
+    def inner(people):
+        # complete the function
+        return map(f, sorted(people, key=lambda x: int(x[2])))   
+    return inner
+
+# Min and Max
+import numpy
+N, M= map(int, input().split())
+store=numpy.array([input().split() for _ in range(N)], int)
+
+print(numpy.max(numpy.min(store, axis=1), axis=0))
+
+#Mean Var, Std
+import numpy
+N, M = map(int, input().split())
+A = numpy.array([list(map(int, input().split())) for n in range(N)])
+print(numpy.mean(A, axis=1))
+print(numpy.var(A, axis=0))
+print(numpy.round(numpy.std(A), 11))
+
+# Linear algebra
+import numpy
+numpy.set_printoptions(legacy='1.13')
+N = int(input())
+A = numpy.array([input().split() for i in range(N)], float)
+print(numpy.linalg.det(A))) 
+ 
+
+
             
 
                 
