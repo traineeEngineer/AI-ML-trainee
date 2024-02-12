@@ -703,7 +703,57 @@ numpy.set_printoptions(legacy='1.13')
 N = int(input())
 A = numpy.array([input().split() for i in range(N)], float)
 print(numpy.linalg.det(A))) 
- 
+
+#Polynomial
+import numpy
+poly=[float(x) for x in input().split()]
+x=float(input())
+print(numpy.polyval(poly, x))
+
+#numpy Dot
+import numpy
+N=int(input())
+A=numpy.array([input().split() for _ in range(N)], int)
+B=numpy.array([input().split() for _ in range(N)], int)
+print(numpy.dot(A, B))
+
+# numpy inner outer
+import numpy
+
+A=numpy.array(input().split(), int)
+B=numpy.array(input().split(), int)
+print(numpy.inner(A, B), numpy.outer(A, B), sep='\n')
+
+#numpy floor ceil rint
+import numpy
+numpy.set_printoptions(legacy='1.13')
+A=numpy.array(input().split(), float)
+print(numpy.floor(A))
+print(numpy.ceil(A))
+print(numpy.rint(A))
+
+#Hex color code
+import re
+for _ in range(int(input())):
+    matches=re.findall(r':?.(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3})', input())
+    if matches:
+        print(*matches, sep='\n')
+
+#Company logo
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+if __name__ == '__main__':
+    s = input()
+    s=sorted(s)
+    Freq=Counter(list(s))
+    for k, v in Freq.most_common(3):
+        print(k, v) 
+
+
 
 
             
