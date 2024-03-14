@@ -169,7 +169,7 @@ why fit_tranform() used for training data transform() for testdata?
 Bias and variance:
  Bias means error of training data, variance means error of test data
 
- underfitting problem: high Bias and high variance
+ underfitting problem: high Bias and low variance
  overfitting problem: low bias and high variance
  best fitting problem:low bias and low variance
  ===================================================================================================================
