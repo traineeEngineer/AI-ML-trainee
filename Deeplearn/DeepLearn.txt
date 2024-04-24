@@ -15,7 +15,7 @@ Vanishing Gradient decent problem:
   when we use back propagation in deep neural network , we use kind of chain rule of 
   derivation formula that time weight are updated but here use sigmoid activation function
   and it will be use derivation of activation fuction points are range 0-0.25 that time 
-  small values , whenever we update new weights that time weights are approximately equal to 
+  small values are genrated , whenever we update new weights that time weights are approximately equal to 
   older weights this problems cause vanishing gradient problem
 
   how to solve use another activation fuction 
