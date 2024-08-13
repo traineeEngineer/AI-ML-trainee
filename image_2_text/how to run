@@ -1,0 +1,15 @@
+# run in colab
+
+# first step
+!wget -q -O - ipv4.icanhazip.com
+
+# Requirements to install
+! pip install -U transformers accelerate bitsandbytes streamlit
+
+# run 
+! npx localtunnel --port 8501 & streamlit run Image_to_text.py
+
+1.click last link 
+2.give a password which given by firt step
+3 streamlit app will be run
+  
