@@ -1,0 +1,22 @@
+1.pull images cmd in docker or podman
+
+"docker or podman pull container name"
+
+2.Run instance 
+"docker or podman run -d -p 8080:80 container name"
+
+3. check running instance
+"docker or podman ps"
+
+
+4.build Image  
+in vscode create dockerfile and create .html file 
+in docker file add
+FROM nginx
+
+COPY index.html /usr/share/nginx/html/index.html
+
+" docker or podman build -t  my-homepage ."
+
+5.push  to
+"docker push container name" and run "docker or podman run -d -p 8080:80 container name" 
